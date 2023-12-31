@@ -38,26 +38,9 @@ fun EcommerceApp() {
     }
 }
 
-@Composable
-fun BasicToolbar(@StringRes title: Int) {
-    TopAppBar(title = { Text(stringResource(title)) })
-}
-
-@Composable
-fun ActionToolbar(
-    @StringRes title: Int,
-    modifier: Modifier = Modifier,
-) {
-    TopAppBar(
-        title = { Text(stringResource(title)) },
-        modifier = modifier
-    )
-}
-
 
 @Composable
 fun Greeting() {
-    ActionToolbar(title = R.string.home, modifier = Modifier.wrapContentSize(Alignment.TopEnd))
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
