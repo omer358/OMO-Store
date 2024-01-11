@@ -35,7 +35,8 @@ fun EmailField(value: String, onNewValue: (String) -> Unit, modifier: Modifier =
         onValueChange = onNewValue,
         placeholder = {
             Text(text = stringResource(id = R.string.email))
-        }
+        },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
     )
 }
 
