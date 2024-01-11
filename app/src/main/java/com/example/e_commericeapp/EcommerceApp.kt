@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -21,8 +22,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.e_commericeapp.screens.login.LoginScreen
+import com.example.e_commericeapp.screens.splash_screen.SplashScreen
 import com.example.e_commericeapp.ui.theme.ECommericeAppTheme
 
 @Composable
@@ -33,7 +37,25 @@ fun EcommerceApp() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            Greeting()
+            Scaffold(
+
+            ) {
+                NavHost(
+                    navController = rememberNavController(),
+                    startDestination = SPLASH_SCREEN,
+                    modifier = Modifier.padding(it),
+                ) {
+                    composable(SPLASH_SCREEN){
+                        SplashScreen()
+                    }
+                    composable(HOME_SCREEN){
+                        HomeScreen()
+                    }
+                    composable(LOGIN_SCREEN){
+                        LoginScreen()
+                    }
+                }
+            }
         }
     }
 }
