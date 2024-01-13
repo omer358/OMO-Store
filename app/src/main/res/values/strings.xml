@@ -5,4 +5,8 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="sign_up">Create Account</string>
+    <string name="generic_error">Something wrong happend, please try again!</string>
+    <string name="email_error">Please insert a valid email!</string>
+    <string name="empty_password_error">Password can\'t be empty!</string>
+    <string name="recovery_email_sent">Check your inbox for recovry email.</string>
 </resources>
