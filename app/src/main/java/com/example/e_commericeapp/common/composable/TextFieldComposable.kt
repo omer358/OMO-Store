@@ -28,7 +28,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.e_commericeapp.R
-import com.example.e_commericeapp.common.ext.fieldModifier
 
 @Composable
 fun EmailField(value: String, onNewValue: (String) -> Unit, modifier: Modifier = Modifier) {
@@ -37,7 +36,8 @@ fun EmailField(value: String, onNewValue: (String) -> Unit, modifier: Modifier =
         modifier = modifier,
         value = value.trim(),
         keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Email
+            keyboardType = KeyboardType.Email,
+            imeAction = ImeAction.Next
         ),
         onValueChange = { onNewValue(it.trim()) },
         placeholder = { Text(stringResource(R.string.email)) },
@@ -81,8 +81,8 @@ private fun PasswordFiled(
             }
         },
         keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Email,
-            imeAction = ImeAction.Go
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
         ),
         keyboardActions = KeyboardActions(  ),
         visualTransformation = visualTransformation

@@ -1,9 +1,9 @@
 package com.example.e_commericeapp.screens.login
 
 import androidx.compose.runtime.mutableStateOf
+import com.example.e_commericeapp.HOME_SCREEN
 import com.example.e_commericeapp.LOGIN_SCREEN
 import com.example.e_commericeapp.R
-import com.example.e_commericeapp.SETTINGS_SCREEN
 import com.example.e_commericeapp.common.ext.isValidEmail
 import com.example.e_commericeapp.common.snackbar.SnackbarManager
 import com.example.e_commericeapp.model.service.AccountService
@@ -46,7 +46,7 @@ class LoginViewModel @Inject constructor(
 
         launchCatching {
             accountService.authenticate(email, password)
-            openAndPopUp(SETTINGS_SCREEN, LOGIN_SCREEN)
+            openAndPopUp(HOME_SCREEN, LOGIN_SCREEN)
         }
     }
 

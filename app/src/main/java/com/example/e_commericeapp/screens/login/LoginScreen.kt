@@ -39,6 +39,7 @@ fun LoginScreen(
         uiState = uiState,
         onEmailChange = viewModel::onEmailChange,
         onPasswordChange = viewModel::onPasswordChange,
+        onSignInClick = {viewModel.onSignInClick(openAndPopUp)}
     )
 }
 
@@ -48,6 +49,7 @@ fun LoginScreenContent(
     uiState: LoginUiState,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
+    onSignInClick: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -78,7 +80,7 @@ fun LoginScreenContent(
                 onNewValue = onPasswordChange,
                 modifier = Modifier.fieldModifier()
             )
-            BasicButton(text = R.string.login, Modifier.basicButton()) {}
+            BasicButton(text = R.string.login, Modifier.basicButton()) {onSignInClick()}
             BasicElevatedButton(text = R.string.sign_up, Modifier.basicButton()) {}
         }
     }
@@ -100,7 +102,8 @@ fun LoginScreenPreview() {
             LoginScreenContent(
                 uiState = uiState,
                 onEmailChange = {},
-                onPasswordChange = {}
+                onPasswordChange = {},
+                onSignInClick = {}
             )
         }
     }

@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.e_commericeapp.screens.home.HomeScreen
 import com.example.e_commericeapp.screens.login.LoginScreen
 import com.example.e_commericeapp.screens.splash_screen.SplashScreen
 import com.example.e_commericeapp.ui.theme.ECommericeAppTheme
@@ -32,8 +33,9 @@ fun EcommerceApp() {
             Scaffold(
 
             ) {
+                val navController = rememberNavController()
                 NavHost(
-                    navController = rememberNavController(),
+                    navController = navController,
                     startDestination = LOGIN_SCREEN,
                     modifier = Modifier.padding(it),
                 ) {
@@ -41,11 +43,14 @@ fun EcommerceApp() {
                         SplashScreen()
                     }
                     composable(HOME_SCREEN){
-//                        HomeScreen()
+                        HomeScreen()
                     }
                     composable(LOGIN_SCREEN){
                         LoginScreen(
-                            openAndPopUp = {route, popUp -> }
+                            openAndPopUp = {route, popUp -> navController.navigate(route){
+                                launchSingleTop = true
+                                popUpTo(popUp){inclusive = true}
+                            } }
                         )
                     }
                 }
