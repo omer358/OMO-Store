@@ -12,10 +12,7 @@ import androidx.compose.ui.unit.dp
 fun Modifier.fieldModifier(): Modifier {
     return this
         .fillMaxWidth()
-        .clip(
-            RoundedCornerShape(16.dp)
-        )
-        .padding(16.dp, 4.dp)
+        .padding(16.dp, 8.dp)
 }
 
 fun Modifier.basicButton(): Modifier {

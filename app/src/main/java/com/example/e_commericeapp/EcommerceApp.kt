@@ -49,10 +49,12 @@ fun EcommerceApp() {
                         SplashScreen()
                     }
                     composable(HOME_SCREEN){
-                        HomeScreen()
+//                        HomeScreen()
                     }
                     composable(LOGIN_SCREEN){
-                        LoginScreen()
+                        LoginScreen(
+                            openAndPopUp = {route, popUp -> }
+                        )
                     }
                 }
             }
